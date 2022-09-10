@@ -35,9 +35,13 @@ btnEnviar.addEventListener('click',()=>{
     const payload = {
         mensaje,
         id:'123abc',
-        fecha: new Date().getTime()
+        //fecha: new Date().getTime(),
+        fecha: Date().toString()
     }
-    socket.emit('enviar-mensaje', payload);
+
+    socket.emit('enviar-mensaje', payload ,( id ) => {
+        //console.log('Desde el server ',id);
+    });
 
 });
 
