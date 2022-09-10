@@ -48,12 +48,12 @@ class Server {
             socket.on('disconnect',()=>{
                 console.log('Cliente esta desconectado =>', socket.id);
             })
-
+            //el "socket.on" -> escuchando cuando el cliente lo emite
             socket.on('enviar-mensaje',(payload) =>{
-                console.log(payload);
+                /* console.log(payload); */
+                // "this.oi" es cuando el servidor de socket envia - "emit" es emitir un evento a todos los usuarios 
+                this.io.emit('enviar-mensaje',payload);
             })
-
-
 
         });
 
